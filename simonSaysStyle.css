@@ -1,0 +1,60 @@
+.container{
+   text-align: center;
+   box-shadow: 3px 15px 25px 0 whitesmoke, 5px 15px 20px 0 black;
+   border-radius: 50%;
+   border: none;
+   width: 100%;
+}
+
+.midDiv{
+    justify-content: space-evenly;
+}
+
+.buttonShape {
+    border-radius: 50%;
+    margin: 1%;
+    width: 10%;
+    padding: 5%;
+    border: none
+}
+
+.red{
+    background-image: linear-gradient(to bottom right, pink, red);
+    box-shadow: inset 2px 2px 30px red
+}
+.red:active{
+    box-shadow: 0 8px 16px 0 red, 0 6px 20px 0 red
+}
+.redActive{
+    box-shadow: 0 8px 16px 0 red, 0 6px 20px 0 red
+}
+.blue{
+    background-image: linear-gradient(to bottom right, lightblue, blue);
+    box-shadow: inset 2px 2px 30px blue
+}
+.blue:active{
+    box-shadow: 0 8px 16px 0 blue, 0 6px 20px 0 blue
+}
+.blueActive{
+    box-shadow: 0 8px 16px 0 blue, 0 6px 20px 0 blue
+}
+.green{
+    background-image: linear-gradient(to bottom right, lightgreen, green);
+    box-shadow: inset 2px 2px 30px green
+}
+.green:active{
+    box-shadow: 0 8px 16px 0 green, 0 6px 20px 0 green
+}
+.greenActive{
+    box-shadow: 0 8px 16px 0 green, 0 6px 20px 0 green
+}
+.black{
+    background-image: linear-gradient(to bottom right, grey, black);
+    box-shadow: inset 2px 2px 30px black
+}
+.black:active{
+    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black
+}
+.blackActive{
+    box-shadow: 0 8px 16px 0 black, 0 6px 20px 0 black
+}
