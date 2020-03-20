@@ -42,9 +42,9 @@ const isThatTheCorrectButton = (buttonsElements, pressedButton) =>{
     const buttonsArray = buttonsElements();
 
     if (pressedButton == buttonsArray[buttonToPress]){
-        alert("Well Done")
+        alert("Well done")
     } else {
-        alert("Perdiste pete")
+        alert("You lost! :(")
     }
 }
 var buttonToPress;
