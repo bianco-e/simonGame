@@ -1,8 +1,9 @@
-const buttonOrder = (button) => {
+/* const buttonOrder = (button, wasItGues) => {
+
     const buttonsOrderedArray = [];
     return buttonsOrderedArray.concat([button])
 }
-
+ */
 const getColor = (elementName) => {
     const splited = elementName.split("");
     const upperCaseLetter = splited.find(l => {
@@ -20,9 +21,7 @@ const buttonsElements = () => {
     return [redButtonElement, blueButtonElement, greenButtonElement, blackButtonElement]
 }
 
-const tellWhichButtonToPress = (getColor, buttonOrder, buttonsElements) => {
-    const buttonsArray = buttonsElements();
-
+const tellWhichButtonToPress = () => {
     const randomButton = Math.floor(Math.random() * buttonsArray.length);
     const colorToPress = getColor(buttonsArray[randomButton].getAttribute("id"));
     soundsArray[randomButton].play();
@@ -32,36 +31,45 @@ const tellWhichButtonToPress = (getColor, buttonOrder, buttonsElements) => {
     setTimeout(() => {
         buttonsArray[randomButton].classList.remove(colorToPress+"Active");        
     }, 350);
-
-    buttonOrder(buttonsArray[randomButton].getAttribute("id"));
+    
 
     return randomButton;
 }
 
-const isThatTheCorrectButton = (buttonsElements, pressedButton) =>{
-    const buttonsArray = buttonsElements();
+const isThatTheCorrectButton = (pressedButton) =>{
 
-    if (pressedButton == buttonsArray[buttonToPress]){
-        alert("Well done")
-    } else {
-        alert("You lost! :(")
-    }
-}
-var buttonToPress;
+        if ((pressedButton == buttonsArray[buttonToPressList[0]])){
+            checkList = checkList.concat(buttonToPressList.splice(0, 1))
+            
+            setTimeout(() => {
+                tellWhichButtonToPress();
+            }, 900);
+        } else {
+            alert("You lost! :(")
+        }
+}   
+
+// Global variables
+
+var checkList = [];
+var buttonToPressList = [];
 const soundsArray = [
     new Audio('sonido1.mp3'),
     new Audio('sonido2.mp3'),
     new Audio('sonido3.mp3'),
-    new Audio('sonido4.mp3')
-]
+    new Audio('sonido4.mp3')];
+const buttonsArray = buttonsElements()
 
+// To do when pressing a button
 
 buttonsElements().map((button, i) => {
     return [button, soundsArray[i]]
 }).forEach((buttonAndSound) => {
-    buttonAndSound[0].addEventListener("click", () => {buttonAndSound[1].play(); isThatTheCorrectButton(buttonsElements, buttonAndSound[0])})
+    buttonAndSound[0].addEventListener("click", () => {buttonAndSound[1].play(); isThatTheCorrectButton(buttonAndSound[0])})
 }) 
 
+// To do when initializating
+
 setTimeout(() => {
-    buttonToPress = tellWhichButtonToPress(getColor, buttonOrder, buttonsElements)
+    buttonToPressList = buttonToPressList.concat(tellWhichButtonToPress(getColor))
 }, 1400);
